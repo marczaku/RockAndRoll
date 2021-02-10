@@ -13,7 +13,7 @@ public class SwipeBallController : MonoBehaviour {
 		}
 		if (Input.GetMouseButtonUp(0)) {
 			var timeDifference = Time.time - this.timeStart;
-			var screenPositionDifference = Input.mousePosition - this.screenPositionStart;
+			var screenPositionDifference = (Input.mousePosition - this.screenPositionStart) / Screen.dpi;
 			var worldDirection = Vector3.forward * screenPositionDifference.y + Vector3.right * screenPositionDifference.x;
 			this.rb.AddForce(worldDirection * this.speed / timeDifference);
 		}
