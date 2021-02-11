@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class SwipeBallController : MonoBehaviour {
 	public float speed = 1f;

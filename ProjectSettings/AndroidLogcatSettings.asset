@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.DefaultCompany.RockAndRoll",
-        "processId": 4684,
+        "processId": 5878,
         "exited": true
     },
     "m_SelectedPriority": 0,
@@ -12,6 +12,12 @@
             "deviceId": "emulator-5554",
             "name": "com.DefaultCompany.RockAndRoll",
             "processId": 4684,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.DefaultCompany.RockAndRoll",
+            "processId": 5878,
             "exited": true
         }
     ],

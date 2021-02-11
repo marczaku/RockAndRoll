@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SwipeScene.unity
     guid: ebd29787ca9bd4217b261b6e92124c81
   - enabled: 1
+    path: Assets/Scenes/TouchScene.unity
+    guid: 44ceb35962f2e4d90b4c4bfc9fad316b
+  - enabled: 1
     path: Assets/Scenes/EndGameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
