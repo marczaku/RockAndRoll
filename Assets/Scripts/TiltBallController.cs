@@ -4,12 +4,19 @@ public class TiltBallController : MonoBehaviour {
 	public float speed = 1f;
 	public Rigidbody rb;
 
-	void FixedUpdate() {
-		var direction = Input.acceleration;
+	public static Vector3 AccelerationToFlatUnityCoordinates(Vector3 acceleration, bool ignoreGravity = false) {
 		// Inverse the z axis, because the accelerometer points the other way
-		direction.z *= -1;
+		acceleration.z *= -1;
 		// Rotate with the camera's rotation (perspective):
-		direction = Quaternion.Euler(90, 0, 0) * direction;
+		var result = Quaternion.Euler(90, 0, 0) * acceleration;
+		if (ignoreGravity)
+			result.y = 0;
+		return result;
+	}
+	
+	void FixedUpdate() {
+		var direction = new Vector3(Input.acceleration.x, 0f, Input.acceleration.y);
+		Debug.Log(direction);
 		// Apply the gravity to the ball:
 		this.rb.AddForce(direction * this.speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
 	}
