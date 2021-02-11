@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TiltScene.unity
+    guid: 274f228ecb6584304b197289121df8bf
+  - enabled: 1
     path: Assets/Scenes/JoystickScene.unity
     guid: 33cab46c2aa274c0fa8f7d129fe76680
   - enabled: 1
