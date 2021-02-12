@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PathBallController : MonoBehaviour {
@@ -25,16 +26,16 @@ public class PathBallController : MonoBehaviour {
 
 	IEnumerator RecordAndPlayInput() {
 		var recording = new List<Vector3>();
-		while (!Input.GetMouseButtonUp(0)) {
+		while (Input.GetMouseButton(0)) {
 			var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out var hitInfo)) {
 				recording.Add(hitInfo.point);
 			}
-			yield return null;
+			yield return new WaitForSeconds(0.5f);
 		}
 		foreach (var point in recording) {
 			ApplyRaycastPosition(point);
-			yield return null;
+			yield return new WaitForSeconds(0.5f);
 		}
 	}
 
