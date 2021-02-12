@@ -4,6 +4,16 @@ public class TiltBallController : MonoBehaviour {
 	public float speed = 1f;
 	public Rigidbody rb;
 
+	class AwesomeUnityLogger : AwesomePlugin.ILogger {
+		public void Log(string message) {
+			Debug.Log(message);
+		}
+	}
+	
+	void Start() {
+		AwesomePlugin.AwesomePlugin.AwesomeFunction(new AwesomeUnityLogger());
+	}
+	
 	public static Vector3 AccelerationToFlatUnityCoordinates(Vector3 acceleration, bool ignoreGravity = false) {
 		// Inverse the z axis, because the accelerometer points the other way
 		acceleration.z *= -1;
