@@ -8,31 +8,54 @@ public class PathBallController : MonoBehaviour {
 	List<Vector3> playRecording;
 	int playRecordingIndex;
 
-	void Update() {
-		if (Input.GetMouseButtonDown(0)) {
-			this.recording = new List<Vector3>();
-		}
+	enum State {
+		WaitForInput,
+		RecordInput,
+		PlayInput
+	}
 
+	State state = State.WaitForInput;
+
+	void Update() {
+		if (this.state == State.WaitForInput) {
+			CheckForInput();
+		} else if (this.state == State.RecordInput) {
+			RecordAndCheckForEndOfInput();
+		} else if (this.state == State.PlayInput) {
+			PlayRecording();
+		}
+	}
+
+	void PlayRecording() {
+		if (this.playRecording != null) {
+			if (this.playRecording.Count <= this.playRecordingIndex) {
+				this.playRecording = null;
+				this.state = State.WaitForInput;
+			} else {
+				var targetPosition = this.playRecording[this.playRecordingIndex++];
+				ApplyRaycastPosition(targetPosition);
+			}
+		}
+	}
+
+	void RecordAndCheckForEndOfInput() {
 		if (Input.GetMouseButton(0)) {
 			var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out var hitInfo)) {
 				this.recording.Add(hitInfo.point);
 			}
-		}
-
-		if (Input.GetMouseButtonUp(0)) {
+		} else if (Input.GetMouseButtonUp(0)) {
 			this.playRecording = this.recording;
 			this.recording = null;
 			this.playRecordingIndex = 0;
+			this.state = State.PlayInput;
 		}
+	}
 
-		if (this.playRecording != null) {
-			if (this.playRecording.Count <= this.playRecordingIndex) {
-				this.playRecording = null;
-			} else {
-				var targetPosition = this.playRecording[this.playRecordingIndex++];
-				ApplyRaycastPosition(targetPosition);
-			}
+	void CheckForInput() {
+		if (Input.GetMouseButtonDown(0)) {
+			this.recording = new List<Vector3>();
+			this.state = State.RecordInput;
 		}
 	}
 
