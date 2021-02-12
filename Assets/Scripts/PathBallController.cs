@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PathBallController : MonoBehaviour {
@@ -17,12 +18,23 @@ public class PathBallController : MonoBehaviour {
 	State state = State.WaitForInput;
 
 	void Update() {
-		if (this.state == State.WaitForInput) {
-			CheckForInput();
-		} else if (this.state == State.RecordInput) {
-			RecordAndCheckForEndOfInput();
-		} else if (this.state == State.PlayInput) {
-			PlayRecording();
+		if (Input.GetMouseButtonDown(0)) {
+			StartCoroutine(RecordAndPlayInput());
+		}
+	}
+
+	IEnumerator RecordAndPlayInput() {
+		var recording = new List<Vector3>();
+		while (!Input.GetMouseButtonUp(0)) {
+			var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(ray, out var hitInfo)) {
+				recording.Add(hitInfo.point);
+			}
+			yield return null;
+		}
+		foreach (var point in recording) {
+			ApplyRaycastPosition(point);
+			yield return null;
 		}
 	}
 
@@ -62,6 +74,20 @@ public class PathBallController : MonoBehaviour {
 	void ApplyIgnoreYPosition(Vector3 targetPosition) {
 		targetPosition.y = this.transform.position.y;
 		this.transform.position = targetPosition;
+	}
+
+	void UpdateStateMachine() {
+		switch (this.state) {
+			case State.WaitForInput:
+				CheckForInput();
+				break;
+			case State.RecordInput:
+				RecordAndCheckForEndOfInput();
+				break;
+			case State.PlayInput:
+				PlayRecording();
+				break;
+		}
 	}
 
 	void ApplyRaycastPosition(Vector3 targetPosition) {
