@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 402955f0ec4c046c8a527a37789dc632
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 260c299db324e7442b7a0dc39190fdf5
+    m_Address: Skyboxes/skybox1.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 068c03dacb84349b09fa397ae60c4555, type: 2}
   m_SchemaSet:
