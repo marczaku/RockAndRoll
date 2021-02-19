@@ -1,0 +1,13 @@
+ManifestFileVersion: 0
+CRC: 582115889
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: my-first-bundle.group-a
+      Dependencies: {}
+    Info_1:
+      Name: my-first-bundle.group-b
+      Dependencies: {}
+    Info_2:
+      Name: skybox0
+      Dependencies: {}

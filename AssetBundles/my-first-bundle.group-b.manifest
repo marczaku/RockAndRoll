@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 18006203
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1a785baa83a732e9450eeb5aad3c8984
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ea67b6a6a7562042dfcd66ab0e2e52b9
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 82caf516c271245e7a86904a56ebe80d, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Prefabs/Goal 1.prefab
+Dependencies: []

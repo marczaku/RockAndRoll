@@ -31,11 +31,14 @@ public class PathBallController : MonoBehaviour {
 			if (Physics.Raycast(ray, out var hitInfo)) {
 				recording.Add(hitInfo.point);
 			}
-			yield return new WaitForSeconds(0.5f);
+
+			yield return null;
 		}
+
+		recording.Reverse();
 		foreach (var point in recording) {
 			ApplyRaycastPosition(point);
-			yield return new WaitForSeconds(0.5f);
+			yield return null;
 		}
 	}
 
