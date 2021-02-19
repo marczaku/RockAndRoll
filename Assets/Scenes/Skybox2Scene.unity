@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Skybox0Cam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,11 +242,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2125580978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82caf516c271245e7a86904a56ebe80d, type: 3}
+  m_Script: {fileID: 11500000, guid: 19db54441abe4487e8bfcf37979a3556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camerasWithSkybox: []
-  gameManager: {fileID: 11400000, guid: d8dd6a0bff35d41ddae802fa4019d3a0, type: 2}
+  ActiveSkyboxCamera: {fileID: 963194225}
+  SkyboxReference:
+    m_AssetGUID: 238c31478bc2b4e2eb4cf07a22388115
+    m_SubObjectName: 
+    m_SubObjectType: 
+  SkyboxLabelReference:
+    m_LabelString: BestLabel
 --- !u!4 &2125580980
 Transform:
   m_ObjectHideFlags: 0
